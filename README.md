@@ -5,7 +5,20 @@ It includes a countdown, music, GIF animations, image reveals, and a final birth
 
 ## 📂 Project Structure
 
-birthday/├── index.html              # Main webpage├── README.md               # Project description├── countdown.mp3           # Music played during countdown├── birthday_wish.mp3       # Music looped after countdown├── left.gif                # Corner animation (left side)├── right.gif               # Corner animation (right side)├── dance1.gif              # Dance animation (stage 2)├── dance2.gif              # Dance animation (stage 2)├── hug-couple.gif          # Main page GIF (stage 5)├── cake.gif                # Birthday cake animation (stage 5)├── celebration.gif         # Celebration animation (stage 5)├── image1.jpg              # First reveal image (stage 3)└── image2.jpg              # Second reveal image (stage 4)
+birthday_wishes/
+├── index.html              # Main webpage
+├── README.md               # Project description (optional but good practice)
+├── countdown.mp3           # Music played during countdown
+├── birthday_wish.mp3       # Music looped after countdown
+├── left.gif                # Corner animation (left side)
+├── right.gif               # Corner animation (right side)
+├── dance1.gif              # Dance animation (stage 2)
+├── dance2.gif              # Dance animation (stage 2)
+├── hug-couple.gif          # Main page GIF (stage 5)
+├── cake.gif                # Birthday cake animation (stage 5)
+├── celebration.gif         # Celebration animation (stage 5)
+├── image1.jpg              # First reveal image (stage 3)
+└── image2.jpg              # Second reveal image (stage 4)
 
 ## 🎨 Features
 
