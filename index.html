@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Shalu Mirsa 🎉</title>
+
+  <!-- Party Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Pacifico&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #ff6ec4, #7873f5, #00ffe0, #ff0080);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      text-align: center;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Stage sections */
+    .stage { display: none; position: relative; width: 100%; height: 100%; }
+    .active { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+    /* Corner GIFs */
+    .corner-gif-left, .corner-gif-right {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      bottom: 20px;
+      z-index: 10;
+    }
+    .corner-gif-left { left: 20px; }
+    .corner-gif-right { right: 20px; }
+
+    /* Button */
+    .start-btn {
+      padding: 18px 40px;
+      font-size: 1.5rem;
+      border: none;
+      border-radius: 50px;
+      background: #ff0080;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      transition: 0.3s;
+    }
+    .start-btn:hover { transform: scale(1.1); background: #ff00cc; }
+
+    /* Circular Timer */
+    .timer-circle {
+      width: 300px;
+      height: 300px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Comic Neue', cursive;
+      font-size: 6rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .timer-svg {
+      width: 300px;
+      height: 300px;
+      position: absolute;
+    }
+
+    .timer-bg {
+      fill: none;
+      stroke: #fff;
+      stroke-width: 5;
+      opacity: 0.3;
+    }
+
+    .countdown-number {
+      position: relative;
+      opacity: 0;
+      transform: scale(0.5);
+      animation: popInOut 1s ease-in-out forwards;
+      z-index: 1;
+    }
+
+    @keyframes popInOut {
+      0% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 1; transform: scale(1.2); }
+      100% { opacity: 0; transform: scale(0.8); }
+    }
+
+    /* Stage 2 Big Wish */
+    .wish {
+      font-family: 'Luckiest Guy', cursive;
+      font-size: 4rem;
+      color: #fff;
+      text-shadow: 0 0 30px #ff0, 0 0 60px #ff0080, 0 0 90px #00ffe0;
+      margin-bottom: 20px;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 20px #ff0, 0 0 40px #ff0080, 0 0 60px #00ffe0; }
+      to   { text-shadow: 0 0 40px #00ffe0, 0 0 80px #ff00ff, 0 0 100px #ff0; }
+    }
+
+    .dance-gifs img {
+      width: 200px;
+      margin: 0 20px;
+    }
+
+    /* Image Reveal Stages */
+    .image-reveal-container {
+      position: relative;
+      width: 600px;
+      height: 450px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Stage 3 Scraping Reveal */
+    .scrape-reveal {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      clip-path: inset(0 100% 0 0);
+      animation: scrapeReveal 2s ease-out forwards;
+    }
+
+    @keyframes scrapeReveal {
+      0% { clip-path: inset(0 100% 0 0); opacity: 0; }
+      100% { clip-path: inset(0 0 0 0); opacity: 1; }
+    }
+
+    /* Stage 4 Shatter Reveal */
+    .shatter-reveal {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0;
+      animation: shatterReveal 2s ease-out forwards;
+    }
+
+    @keyframes shatterReveal {
+      0% {
+        opacity: 0;
+        transform: translate(50px, -50px) scale(0.5) rotate(10deg);
+      }
+      50% {
+        opacity: 0.5;
+        transform: translate(-20px, 20px) scale(0.8) rotate(-5deg);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1) rotate(0deg);
+      }
+    }
+
+    /* Stage 5 Main Page */
+    .gif-container img {
+      border-radius: 20px;
+      width: 320px;
+      height: 240px;
+      object-fit: cover;
+      box-shadow: 0 0 25px rgba(0,0,0,0.5);
+      margin-bottom: 20px;
+      animation: bounce 3s infinite ease-in-out;
+    }
+    @keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+
+    h1 {
+      font-size: 3.5rem;
+      font-family: 'Pacifico', cursive;
+      color: #fff;
+      text-shadow: 0 0 20px #ff0, 0 0 40px #ff0080;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    h1 img { width: 60px; height: 60px; }
+
+    .message {
+      font-size: 1.6rem;
+      color: #fff;
+      text-shadow: 0 0 10px #000;
+    }
+
+    /* Animations - balloons, stars, crackers, particles */
+    .balloon, .star, .cracker, .particle {
+      position: absolute;
+      animation-timing-function: linear;
+    }
+
+    .balloon {
+      width: 60px; height: 80px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff, var(--color));
+      bottom: -100px;
+      animation: rise 12s infinite;
+    }
+    @keyframes rise {
+      0%{transform:translateY(0);}100%{transform:translateY(-120vh);}
+    }
+
+    .star {
+      width: 4px; height: 4px;
+      background: white; border-radius: 50%;
+      top: -10px;
+      animation: fall 8s infinite;
+    }
+    @keyframes fall {
+      0%{transform:translateY(0);}100%{transform:translateY(120vh);}
+    }
+
+    .cracker {
+      width: 8px; height: 40px;
+      background: yellow;
+      transform: rotate(45deg);
+      animation: explode 2s forwards;
+    }
+    @keyframes explode {
+      0%{opacity:1; transform:scale(0.5);}
+      100%{opacity:0; transform:scale(2);}
+    }
+
+    .particle {
+      width: 6px; height: 6px;
+      background: #ff0080;
+      border-radius: 50%;
+      animation: floatUp 6s infinite;
+    }
+    @keyframes floatUp {
+      0%{transform:translateY(0);}100%{transform:translateY(-100vh); opacity:0;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Audio Elements -->
+  <audio id="countdownMusic" src="countdown.mp3"></audio>
+  <audio id="wishMusic" src="birthday_wish.mp3" loop></audio>
+
+  <!-- Stage 1 -->
+  <div id="stage1" class="stage active">
+    <button class="start-btn" onclick="startCountdown()">Tap on Me 🎁</button>
+    <img src="left.gif" alt="Left GIF" class="corner-gif-left">
+    <img src="right.gif" alt="Right GIF" class="corner-gif-right">
+  </div>
+
+  <!-- Stage 1.5 Timer -->
+  <div id="stageTimer" class="stage">
+    <div class="timer-circle">
+      <svg id="timer-svg" class="timer-svg" viewBox="0 0 100 100">
+        <circle class="timer-bg" cx="50" cy="50" r="45 " style="fill: none; stroke: #fff; stroke-width: 5; opacity: 0.3;"></circle>
+      </svg>
+      <span id="countdown"></span>
+    </div>
+    <img src="left.gif" alt="Left GIF" class="corner-gif-left">
+    <img src="right.gif" alt="Right GIF" class="corner-gif-right">
+  </div>
+
+  <!-- Stage 2 Big Wish -->
+  <div id="stage2" class="stage">
+    <div class="wish">Happy Birthday Shalu Mirsa 🎉</div>
+    <div class="dance-gifs">
+      <img src="dance1.gif" alt="Dance 1">
+      <img src="dance2.gif" alt="Dance 2">
+    </div>
+    <img src="left.gif" alt="Left GIF" class="corner-gif-left">
+    <img src="right.gif" alt="Right GIF" class="corner-gif-right">
+  </div>
+
+  <!-- Stage 3 Image Reveal 1 (Scraping) -->
+  <div id="stage3" class="stage">
+    <div class="image-reveal-container">
+      <img src="image1.jpg" alt="Celebration Image 1" class="scrape-reveal">
+    </div>
+    <img src="left.gif" alt="Left GIF" class="corner-gif-left">
+    <img src="right.gif" alt="Right GIF" class="corner-gif-right">
+  </div>
+
+  <!-- Stage 4 Image Reveal 2 (Shatter) -->
+  <div id="stage4" class="stage">
+    <div class="image-reveal-container">
+      <img src="image2.jpg" alt="Celebration Image 2" class="shatter-reveal">
+    </div>
+    <img src="left.gif" alt="Left GIF" class="corner-gif-left">
+    <img src="right.gif" alt="Right GIF" class="corner-gif-right">
+  </div>
+
+  <!-- Stage 5 Main Page -->
+  <div id="stage5" class="stage">
+    <div class="container">
+      <div class="gif-container">
+        <img src="hug-couple.gif" alt="Birthday Hug GIF">
+      </div>
+      <h1>
+        <img src="cake.gif" alt="Cake">
+        Happy Birthday Shalu Mirsa
+        <img src="celebration.gif" alt="Celebration">
+      </h1>
+      <p class="message">Wishing you a magical day filled with love, joy, and endless smiles ✨</p>
+    </div>
+    <img src="left.gif" alt="Left GIF" class="corner-gif-left">
+    <img src="right.gif" alt="Right GIF" class="corner-gif-right">
+  </div>
+
+  <script>
+    function startCountdown() {
+      document.getElementById("stage1").classList.remove("active");
+      document.getElementById("stageTimer").classList.add("active");
+
+      // Play countdown music
+      const countdownMusic = document.getElementById("countdownMusic");
+      countdownMusic.play();
+
+      // Create segments
+      const svg = document.getElementById('timer-svg');
+      const radius = 45;
+      const cx = 50, cy = 50;
+      const segCount = 10;
+      const angleStep = 2 * Math.PI / segCount;
+      for (let i = 0; i < segCount; i++) {
+        const startAngle = i * angleStep - Math.PI / 2;
+        const endAngle = (i + 1) * angleStep - Math.PI / 2;
+        const x1 = cx + radius * Math.cos(startAngle);
+        const y1 = cy + radius * Math.sin(startAngle);
+        const x2 = cx + radius * Math.cos(endAngle);
+        const y2 = cy + radius * Math.sin(endAngle);
+        const largeArc = angleStep > Math.PI ? 1 : 0;
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", `M ${x1} ${y1} A ${radius} ${radius} 0 ${largeArc} 1 ${x2} ${y2}`);
+        path.setAttribute("stroke", "#ff0080");
+        path.setAttribute("stroke-width", "5");
+        path.setAttribute("fill", "none");
+        path.setAttribute("class", "segment");
+        svg.appendChild(path);
+      }
+
+      let timeLeft = 10;
+      let timePassed = 0;
+      const countdownEl = document.getElementById("countdown");
+
+      function showNumber(number) {
+        countdownEl.innerHTML = `<span class="countdown-number">${number}</span>`;
+      }
+
+      function runCountdown() {
+        if (timeLeft >= 0) {
+          showNumber(timeLeft);
+          const segments = document.querySelectorAll('.segment');
+          if (timePassed > 0) {
+            segments[timePassed - 1].style.opacity = 0;
+          }
+          timeLeft--;
+          timePassed++;
+          setTimeout(runCountdown, 1000);
+        } else {
+          countdownMusic.pause();
+          countdownMusic.currentTime = 0;
+          document.getElementById("stageTimer").classList.remove("active");
+          document.getElementById("stage2").classList.add("active");
+
+          // Start wish music
+          const wishMusic = document.getElementById("wishMusic");
+          wishMusic.play();
+
+          setTimeout(() => {
+            document.getElementById("stage2").classList.remove("active");
+            document.getElementById("stage3").classList.add("active");
+
+            setTimeout(() => {
+              document.getElementById("stage3").classList.remove("active");
+              document.getElementById("stage4").classList.add("active");
+
+              setTimeout(() => {
+                document.getElementById("stage4").classList.remove("active");
+                document.getElementById("stage5").classList.add("active");
+              }, 7000);
+            }, 7000);
+          }, 8000);
+        }
+      }
+
+      runCountdown();
+    }
+
+    // Background elements
+    function createBalloon() {
+      const b = document.createElement("div");
+      b.classList.add("balloon");
+      b.style.left = Math.random()*window.innerWidth+"px";
+      b.style.setProperty("--color", `hsl(${Math.random()*360},80%,60%)`);
+      document.body.appendChild(b);
+      setTimeout(() => b.remove(), 12000);
+    }
+
+    function createStar() {
+      const s = document.createElement("div");
+      s.classList.add("star");
+      s.style.left = Math.random()*window.innerWidth+"px";
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 8000);
+    }
+
+    function createParticle() {
+      const p = document.createElement("div");
+      p.classList.add("particle");
+      p.style.left = Math.random()*window.innerWidth+"px";
+      p.style.top = Math.random()*window.innerHeight+"px";
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), 6000);
+    }
+
+    function createCracker() {
+      const c = document.createElement("div");
+      c.classList.add("cracker");
+      c.style.left = Math.random()*window.innerWidth+"px";
+      c.style.top = Math.random()*window.innerHeight+"px";
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 2000);
+    }
+
+    setInterval(createBalloon, 700);
+    setInterval(createStar, 500);
+    setInterval(createParticle, 800);
+    setInterval(createCracker, 3000);
+  </script>
+</body>
+</html>
