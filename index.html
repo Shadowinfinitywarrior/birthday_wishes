@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Happy Birthday Shalu Mirsa 🎉</title>
+  <!-- Ensure responsive viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Party Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Pacifico&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
@@ -37,13 +39,21 @@
     /* Corner GIFs */
     .corner-gif-left, .corner-gif-right {
       position: absolute;
-      width: 500px;
-      height: 500px;
+      width: 200px;
+      height: 200px;
       bottom: 20px;
       z-index: 10;
     }
     .corner-gif-left { left: 20px; }
     .corner-gif-right { right: 20px; }
+
+    /* Responsive design for mobile/tablet */
+    @media screen and (max-width: 768px) {
+      .corner-gif-left, .corner-gif-right {
+        width: 600px;
+        height: 600px;
+      }
+    }
 
     /* Button */
     .start-btn {
@@ -267,7 +277,7 @@
   <div id="stageTimer" class="stage">
     <div class="timer-circle">
       <svg id="timer-svg" class="timer-svg" viewBox="0 0 100 100">
-        <circle class="timer-bg" cx="50" cy="50" r="45 " style="fill: none; stroke: #fff; stroke-width: 5; opacity: 0.3;"></circle>
+        <circle class="timer-bg" cx="50" cy="50" r="45"></circle>
       </svg>
       <span id="countdown"></span>
     </div>
